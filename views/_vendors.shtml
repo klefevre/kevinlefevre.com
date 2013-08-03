@@ -1,0 +1,7 @@
+<script type="text/javascript" src="js/vendor/dev/jquery-2.0.0.min.js"></script>
+<script type="text/javascript" src="js/vendor/prod/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/vendor/dev/underscore.js"></script>
+<script type="text/javascript" src="js/vendor/dev/backbone.js"></script>
+<script type="text/javascript" src="js/vendor/prod/three.min.js"></script>
+<script type="text/javascript" src="js/vendor/prod/tween.min.js"></script>
+<script type="text/javascript" src="js/vendor/prod/stats.min.js"></script>

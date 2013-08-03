@@ -1,0 +1,154 @@
+<div id="works">
+
+    <div id="menu">
+        <button id="table">TABLE</button>
+        <button id="sphere">SPHERE</button>
+        <button id="helix">HELIX</button>
+        <button id="grid">GRID</button>
+    </div>
+
+    <div id="lcontent">
+        <ul>
+            <li>test1</li>
+            <li>test2</li>
+            <li>test3</li>
+            <li>test4</li>
+            <li>test5</li>
+        </ul>
+    <div id="rcontent">
+        <p>PLOP</p>
+    </div>
+
+    <script>
+
+var cssCamera, cssScene, cssRenderer;
+var cssControls;
+
+var objects = [];
+var targets = { table: [], sphere: [], helix: [], grid: [] };
+
+cssInit();
+cssAnimate();
+
+//        var RotondeView = function() {
+//
+//            this.init = function ( target ) {
+//
+//
+//            }
+//        }
+
+
+
+function cssInit() {
+
+    var table = [
+        "HOME", "ABOUT", "WORKS", "BLOG", "CONTACT"
+    ];
+    console.log("size=", $('#rcontent')[0].offsetWidth );
+
+    cssCamera = new THREE.PerspectiveCamera( 75, $('#rcontent')[0].offsetWidth/ 500, 1, 5000 );
+    cssCamera.position.z = 1800;
+
+    cssScene = new THREE.Scene();
+
+    for ( var i = 0; i < table.length; ++i ) {
+        var item = table[ i ];
+
+        var element = document.createElement( 'div' );
+        element.className = 'element';
+        element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+
+        var symbol = document.createElement( 'div' );
+        symbol.className = 'symbol';
+        symbol.textContent = item;
+        element.appendChild( symbol );
+
+        var object = new THREE.CSS3DObject( element );
+//        object.position.x = Math.sin((2.0 * i * Math.PI / table.length) - (Math.PI/2)) * 120.0 + (($('#rcontent')[0].offsetWidth)/2);
+//        object.position.y = Math.sin((2.0 * i * Math.PI / table.length) - (Math.PI/2)) * 120.0 + (500/2);
+//        object.position.z = 500;
+
+        object.position.x = 0;
+        object.position.y = 0;
+        object.position.z = 0;
+
+//        object.position.x = Math.random() * 4000 - 2000;
+//        object.position.y = Math.random() * 4000 - 2000;
+//        object.position.z = Math.random() * 4000 - 2000;
+        cssScene.add( object );
+
+        objects.push( object );
+    }
+
+//    // Position item in the rotonde
+//    for ( var i = 0; i < objects.length; ++i ) {
+//        var item = table[ i ];
+//
+//        var object = new THREE.Object3D();
+//
+////        console.log("x=%d, y=%d", object.position.x, object.position.y);
+//    }
+
+
+    // CSS RENDERER
+    cssRenderer = new THREE.CSS3DRenderer();
+    cssRenderer.setSize( $('#rcontent')[0].offsetWidth, 500);
+    cssRenderer.domElement.style.position = 'absolute';
+    cssRenderer.domElement.style.backgroundColor = 'pink';
+    document.getElementById('rcontent').appendChild( cssRenderer.domElement );
+
+    <!--transform( targets.table, 5000 );-->
+
+//    window.addEventListener( 'resize', onCssWindowResize, false );
+}
+
+<!--function transform( targets, duration ) {-->
+
+    <!--TWEEN.removeAll();-->
+
+    <!--for ( var i = 0; i < objects.length; i ++ ) {-->
+
+        <!--var object = objects[ i ];-->
+        <!--var target = targets[ i ];-->
+
+        <!--new TWEEN.Tween( object.position )-->
+                <!--.to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )-->
+                <!--.easing( TWEEN.Easing.Exponential.InOut )-->
+                <!--.start();-->
+
+        <!--new TWEEN.Tween( object.rotation )-->
+                <!--.to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )-->
+                <!--.easing( TWEEN.Easing.Exponential.InOut )-->
+                <!--.start();-->
+
+    <!--}-->
+
+    <!--new TWEEN.Tween( this )-->
+            <!--.to( {}, duration * 2 )-->
+            <!--.onUpdate( render )-->
+            <!--.start();-->
+
+<!--}-->
+
+function onCssWindowResize() {
+
+    cssCamera.aspect = $('#rcontent')[0].offsetWidth /500;
+    cssCamera.updateProjectionMatrix();
+
+    cssRenderer.setSize( $('#rcontent')[0].offsetWidth, 500);
+
+}
+
+function cssAnimate() {
+    requestAnimationFrame( cssAnimate );
+//    TWEEN.update();
+//    cssControls.update();
+}
+
+function render() {
+    cssRenderer.render( cssScene, cssCamera );
+}
+
+    </script>
+</div>
