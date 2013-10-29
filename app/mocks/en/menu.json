@@ -1,0 +1,21 @@
+{
+    "uid": "menu",
+    "menu" : [
+        {
+            "title": "home",
+            "link": "#"
+        },
+        {
+            "title": "about",
+            "link": "#about"
+        },
+        {
+            "title": "works",
+            "link": "#works"
+        },
+        {
+            "title": "contact",
+            "link": "#contact"
+        }
+    ]
+}

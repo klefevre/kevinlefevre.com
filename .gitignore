@@ -1,3 +1,11 @@
+.idea
 .DS_Store
-Capfile
-config
+node_modules
+dist
+app/bower_components
+app/_test
+test/temp
+test/bower_components
+.sass-cache
+.tmp
+.ftppass

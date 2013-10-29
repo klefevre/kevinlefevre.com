@@ -1,0 +1,21 @@
+{
+    "uid": "menu",
+    "menu" : [
+        {
+            "title": "home",
+            "link": "#"
+        },
+        {
+            "title": "à propros",
+            "link": "#about"
+        },
+        {
+            "title": "travaux",
+            "link": "#works"
+        },
+        {
+            "title": "contact",
+            "link": "#contact"
+        }
+    ]
+}

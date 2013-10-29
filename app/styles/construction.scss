@@ -1,0 +1,43 @@
+/*
+** MAIN.CSS
+*/
+
+body {
+    font-family:"Lucida Grande", arial, sans-serif;
+	font-size:15px;
+
+    height:auto;
+	margin:0;
+    text-align:center;
+}
+
+/*
+** Container (for Three.js)
+*/
+#container {
+    position:absolute;
+    top:0; left:0;
+    z-index:-1;
+}
+
+#construction {
+    text-transform:uppercase;
+}
+
+#construction img {
+    position: absolute;
+    width: 535px; height: 132px;
+    left: 50%; top: 50%;
+    margin-left: -267px;
+    margin-top: -99px;
+}
+
+#construction a {
+    position: absolute;
+    top: 55%; left: 50%;
+    text-decoration:none;
+}
+
+/*
+** Header
+*/
