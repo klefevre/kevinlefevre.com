@@ -7,10 +7,12 @@ define(function (require) {
         JST = require('templates');
 
     return Backbone.View.extend({
+        el: '#kl-menu',
         template: JST['app/scripts/templates/menu.ejs'],
         events: { /* ... */ },
 
         initialize: function () {
+
         },
         render: function (data) {
             if (data != null) {

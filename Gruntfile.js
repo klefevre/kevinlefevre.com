@@ -189,6 +189,9 @@ module.exports = function (grunt) {
                         '.tmp/styles/{,*/}*.css',
                         '<%= yeoman.app %>/styles/{,*/}*.css'
                     ]
+                },
+                options: {
+                    banner: '/* You can take a look at source here : https://github.com/klefevre/kevinlefevre.com */'
                 }
             }
         },
@@ -221,7 +224,6 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '!_index.html',
                         '*.{ico,txt}',
                         '.htaccess',
                         'assets/images/{,*/}*.{webp,gif}',

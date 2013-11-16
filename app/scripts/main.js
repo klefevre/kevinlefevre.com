@@ -21,7 +21,8 @@ require.config({
         requirejs: '../bower_components/requirejs/require',
         'requirejs-text': '../bower_components/requirejs-text/text',
         modernizr: '../bower_components/modernizr/modernizr',
-        threejs: '../bower_components/threejs/threejs'
+        threejs: '../bower_components/threejs/build/threejs',
+        flexslider: '../bower_components/flexslider/jquery.flexslider'
     }
 });
 
@@ -32,11 +33,11 @@ require([
     'use strict';
 
     Backbone.application = {
-        language: 'en', // Default language
+        language: 'en', // Default language.
         supportedLanguage: ['en', 'fr']
     };
 
-    // Detect navigator language
+    // Detect navigator language.
     var curLang;
     if (navigator.language) {
         curLang = navigator.language;
@@ -48,8 +49,8 @@ require([
 
     // If current language is supported, then define it.
     console.log('curLang =', curLang, ' -> tested substring =', curLang.substring(0, 2));
-    curLang = curLang.substring(0, 2);
-    if($.inArray(curLang , Backbone.application.supportedLanguage) !== -1) {
+    curLang = curLang.substring(0, 2); // Transform "en-US" in "en" for example
+    if($.inArray(curLang, Backbone.application.supportedLanguage) !== -1) {
         Backbone.application.language = curLang;
     }
 

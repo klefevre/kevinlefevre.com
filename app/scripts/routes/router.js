@@ -4,9 +4,7 @@ define(function (require) {
     var $ = require('jquery'),
         Backbone = require('backbone');
 
-    var $container = $('#content-container'),
-        $menu = $('#menu-container'),
-        viewArray = ['menu', 'home', 'about', 'works', 'contact'],
+    var viewArray = ['menu', 'home', 'about', 'works', 'contact'],
         currentView = null;
 
     return Backbone.Router.extend({
@@ -35,9 +33,6 @@ define(function (require) {
             if ($.inArray(query, viewArray) !== -1) {
                 console.log('--> processing...');
 
-                // Define container
-                var container = (query === 'menu') ? $menu : $container;
-
                 // Require view
                 require(['views/' + query], function (View) {
 
@@ -45,15 +40,13 @@ define(function (require) {
                     $.getJSON( 'mocks/' + Backbone.application.language +'/'+query+'.json', function (data) {
 
                         // Instanciate new view with data
-
-                        currentView = new View( {el: container} );
+                        currentView = new View();
                         currentView.render(data);
                     });
                 });
             } else {
                 console.log('not recognized');
             }
-            console.log("--------");
         },
         updateLanguage: function(lang) {
             // TODO: Set langage to current view

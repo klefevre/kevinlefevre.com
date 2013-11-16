@@ -7,6 +7,7 @@ define(function (require) {
         JST = require('templates');
 
     return Backbone.View.extend({
+        el: '#content-container',
         template: JST['app/scripts/templates/about.ejs'],
         events: { /* ... */ },
 

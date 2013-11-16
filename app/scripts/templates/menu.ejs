@@ -1,7 +1,5 @@
-<nav id="menu">
-    <ul class="nav">
-        <% for (var i=0; i < menu.length; ++i) {%>
-        <li><a href='<%= menu[i].link %>'><%= menu[i].title %></a></li>
-        <% } %>
-    </ul>
-</nav>
+<ul>
+    <% for (var i=0; i < menu.length; ++i) {%>
+    <li><a href="<%= menu[i].link %>" class="large caps"><%= menu[i].title %></a></li>
+    <% } %>
+</ul>

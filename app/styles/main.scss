@@ -1,4 +1,8 @@
 @import "compass/typography/lists/horizontal-list";
+@import "compass/layout/sticky-footer";
+@import "typo";
+
+@import "flexslider-compass/flexslider";
 
 // Body
 body {
@@ -16,15 +20,17 @@ body {
     z-index: -1;
 }
 
-/*
-** Debug
-*/
+/* Debug */
 header {
   background-color: teal;
 
-  ul.nav {
-    background-color: orange;
-  }
+  img { background-color: #adff2f; }
+
+  nav { background-color: orange;  }
+}
+
+footer {
+  background-color: cornflowerblue;
 }
 
 div#content-container {
@@ -32,31 +38,56 @@ div#content-container {
   border:1px solid red;
 }
 
-/*
-** Header
-*/
-header {
-  margin-bottom: 10px;
+/* Layout */
+.kl-container {
+  clear: both;
+  position: relative;
+  margin: auto;
+  max-width: 960px;
+}
 
-  img {
-    max-width: 504px;
-    height: auto;
+/* Header */
+header {
+  position: relative;
+  width: 100%;
+
+  a#kl-header {
+    img {
+      width: 100%;
+      max-width: 535px;
+      height: auto;
+    }
   }
 
-  ul.nav {
-    @include horizontal-list;
+  nav {
+    position: absolute;
+    right: 0; bottom: 0;
 
-    li a {
-      color:#000;
-      text-decoration:none;
-      text-transform: uppercase;
+    ul {
+      @include horizontal-list;
 
-      &:hover {
-        color: rgb(255,205,67);
+      li a {
+        color: #000;
+
+        &:hover {
+          color: rgb(255,205,67);
+        }
       }
     }
-
   }
+}
+
+#kl-langs {
+  @include horizontal-list;
+  position: absolute;
+  top: 0;  right: 0;
+}
+
+/* Footer */
+@include sticky-footer(54px, "#kl-root", "#kl-root_footer", "#kl-footer");
+
+#kl-social-links {
+  @include horizontal-list;
 }
 
 
@@ -77,10 +108,10 @@ header {
 /*
 ** Details (contents)
 */
-#content-container {
-    display:table-cell;
-    width:10000px;  height:200px;
-}
+//#content-container {
+//    display:table-cell;
+//    width:10000px;  height:200px;
+//}
 
 /* CONTACT */
 //.wrapper {
