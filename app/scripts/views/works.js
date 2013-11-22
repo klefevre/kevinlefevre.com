@@ -4,7 +4,8 @@ define(function (require) {
     var $ = require('jquery'),
         _ = require('underscore'),
         Backbone = require('backbone'),
-        JST = require('templates');
+        JST = require('templates'),
+        THREE = require('threejs');
 
     return Backbone.View.extend({
         el: '#content-container',

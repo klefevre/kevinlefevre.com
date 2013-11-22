@@ -21,38 +21,44 @@ require.config({
         requirejs: '../bower_components/requirejs/require',
         'requirejs-text': '../bower_components/requirejs-text/text',
         modernizr: '../bower_components/modernizr/modernizr',
-        threejs: '../bower_components/threejs/build/threejs',
+        threejs: '../bower_components/threejs/build/three',
         flexslider: '../bower_components/flexslider/jquery.flexslider'
     }
 });
 
 require([
     'backbone',
+    'threejs',
     'routes/router'
-], function (Backbone, Router) {
+], function (Backbone, THREE, Router) {
     'use strict';
 
-    Backbone.application = {
-        language: 'en', // Default language.
-        supportedLanguage: ['en', 'fr']
-    };
+    manageLanguage();
 
-    // Detect navigator language.
-    var curLang;
-    if (navigator.language) {
-        curLang = navigator.language;
-    } else if (navigator.userLanguage) {
-        curLang = navigator.userLanguage;
-    } else {
-        curLang = '';
+    function manageLanguage() {
+        Backbone.application = {
+            language: 'en', // Default language.
+            supportedLanguage: ['en', 'fr']
+        };
+
+        // Detect navigator language.
+        var curLang;
+        if (navigator.language) {
+            curLang = navigator.language;
+        } else if (navigator.userLanguage) {
+            curLang = navigator.userLanguage;
+        } else {
+            curLang = '';
+        }
+
+        // If current language is supported, then define it.
+        console.log('curLang =', curLang, ' -> tested substring =', curLang.substring(0, 2));
+        curLang = curLang.substring(0, 2); // Transform "en-US" in "en" for example
+        if($.inArray(curLang, Backbone.application.supportedLanguage) !== -1) {
+            Backbone.application.language = curLang;
+        }
+
+        var router = new Router();
     }
 
-    // If current language is supported, then define it.
-    console.log('curLang =', curLang, ' -> tested substring =', curLang.substring(0, 2));
-    curLang = curLang.substring(0, 2); // Transform "en-US" in "en" for example
-    if($.inArray(curLang, Backbone.application.supportedLanguage) !== -1) {
-        Backbone.application.language = curLang;
-    }
-
-    var router = new Router();
 });

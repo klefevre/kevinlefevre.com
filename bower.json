@@ -1,6 +1,6 @@
 {
-  "name": "kevinlefevre-com-test",
-  "version": "0.0.0",
+  "name": "kevinlefevre-com",
+  "version": "0.0.1",
   "dependencies": {
     "jquery": "~1.9.0",
     "underscore": "~1.4.3",

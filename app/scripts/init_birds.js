@@ -23,14 +23,14 @@ function init() {
     scene = new THREE.Scene();
 
     // Load KL 3d logo
-    loader = new THREE.JSONLoader();
-    loader.load('assets/obj/logo.json', function(geometry) {
-        logo = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
-            color: 'black'
-        }));
-        logo.position.set(-155, 0, 100);
-        scene.add(logo);
-    });
+//    loader = new THREE.JSONLoader();
+//    loader.load('assets/objects/logo.json', function(geometry) {
+//        logo = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
+//            color: 'black'
+//        }));
+//        logo.position.set(-155, 0, 100);
+//        scene.add(logo);
+//    });
 
     // Load birds
     birds = [];
@@ -93,10 +93,10 @@ function animate() {
 function render() {
     var time = Date.now() * 0.0005;
 
-    if (logo) {
-        logo.rotation.x -= 0.005;
-        logo.rotation.y -= 0.01;
-    }
+//    if (logo) {
+//        logo.rotation.x -= 0.005;
+//        logo.rotation.y -= 0.01;
+//    }
 
     for (var i = 0, il = birds.length; i < il; i++) {
         boid = boids[i];
