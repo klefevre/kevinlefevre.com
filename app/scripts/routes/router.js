@@ -1,3 +1,7 @@
+/**
+ *  router.js
+ */
+
 define(function (require) {
     'use strict';
 
@@ -31,7 +35,7 @@ define(function (require) {
 
             // If view exist, then render it
             if ($.inArray(query, viewArray) !== -1) {
-                console.log('--> processing...');
+                console.log('--> query exist, processing...');
 
                 // Require view
                 require(['views/' + query], function (View) {
@@ -45,8 +49,9 @@ define(function (require) {
                     });
                 });
             } else {
-                console.log('not recognized');
+                console.log("not recognized");
             }
+            console.log("== End processing ====");
         },
         updateLanguage: function(lang) {
             // TODO: Set langage to current view

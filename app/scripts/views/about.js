@@ -1,3 +1,7 @@
+/**
+ *  about.js
+ */
+
 define(function (require) {
     'use strict';
 

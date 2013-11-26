@@ -1,3 +1,7 @@
+/**
+ *  menu.js
+ */
+
 define(function (require) {
     'use strict';
 

@@ -1,3 +1,7 @@
+/**
+ *  home.js
+ */
+
 define(function (require) {
     'use strict';
 

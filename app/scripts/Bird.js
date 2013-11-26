@@ -1,40 +1,46 @@
-var Bird = function () {
+/**
+ * Bird.js
+ */
 
-	var scope = this;
+define(function (require) {
+    "use strict";
 
-	THREE.Geometry.call( this );
+    var THREE = require("threejs");
 
-	v(   5,   0,   0 );
-	v( - 5, - 2,   1 );
-	v( - 5,   0,   0 );
-	v( - 5, - 2, - 1 );
+    var Bird = function() {
 
-	v(   0,   2, - 6 );
-	v(   0,   2,   6 );
-	v(   2,   0,   0 );
-	v( - 3,   0,   0 );
+        var scope = this;
 
-	f3( 0, 2, 1 );
-	// f3( 0, 3, 2 );
+        THREE.Geometry.call( this );
 
-	f3( 4, 7, 6 );
-	f3( 5, 6, 7 );
+        v(   5,   0,   0 );
+        v( - 5, - 2,   1 );
+        v( - 5,   0,   0 );
+        v( - 5, - 2, - 1 );
 
-	this.computeCentroids();
-	this.computeFaceNormals();
+        v(   0,   2, - 6 );
+        v(   0,   2,   6 );
+        v(   2,   0,   0 );
+        v( - 3,   0,   0 );
 
-	function v( x, y, z ) {
+        f3( 0, 2, 1 );
+        // f3( 0, 3, 2 );
 
-		scope.vertices.push( new THREE.Vector3( x, y, z ) );
+        f3( 4, 7, 6 );
+        f3( 5, 6, 7 );
 
-	}
+        this.computeCentroids();
+        this.computeFaceNormals();
 
-	function f3( a, b, c ) {
+        function v( x, y, z ) {
+            scope.vertices.push( new THREE.Vector3( x, y, z ) );
+        }
 
-		scope.faces.push( new THREE.Face3( a, b, c ) );
+        function f3( a, b, c ) {
+            scope.faces.push( new THREE.Face3( a, b, c ) );
+        }
+    }
 
-	}
-
-}
-
-Bird.prototype = Object.create( THREE.Geometry.prototype );
+    Bird.prototype = Object.create( THREE.Geometry.prototype );
+    return Bird;
+});

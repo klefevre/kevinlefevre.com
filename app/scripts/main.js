@@ -1,4 +1,7 @@
-/*global require*/
+/**
+ *  main.js
+ */
+
 'use strict';
 
 require.config({
@@ -12,6 +15,12 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
+        },
+        threejs: {
+            exports: 'THREE'
+        },
+        tween: {
+            exports: 'TWEEN'
         }
     },
     paths: {
@@ -22,18 +31,27 @@ require.config({
         'requirejs-text': '../bower_components/requirejs-text/text',
         modernizr: '../bower_components/modernizr/modernizr',
         threejs: '../bower_components/threejs/build/three',
-        flexslider: '../bower_components/flexslider/jquery.flexslider'
+        flexslider: '../bower_components/flexslider/jquery.flexslider',
+        tween: '../bower_components/tweenjs/build/tween.min'
     }
 });
 
 require([
     'backbone',
-    'threejs',
-    'routes/router'
-], function (Backbone, THREE, Router) {
+    'routes/router',
+    'MainScene'
+], function (Backbone, Router, MainScene) {
     'use strict';
 
     manageLanguage();
+
+//    var test = new MainScene();
+
+    $("#stop-birds-btn").click(function(){
+        console.log("console.log tapped");
+        test.toggle();
+        $("#stop-birds-btn").html(!test.isAnimated ? "Resume birds" : "Stop birds");
+    });
 
     function manageLanguage() {
         Backbone.application = {

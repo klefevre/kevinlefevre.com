@@ -1,3 +1,7 @@
+/**
+ *  works.js
+ */
+
 define(function (require) {
     'use strict';
 
@@ -17,6 +21,10 @@ define(function (require) {
         render: function (data) {
             if (data != null) {
                 this.$el.html( this.template( data ));
+
+                require(["../WorksScene"], function (WorksScene) {
+                   new WorksScene();
+                });
             }
             return this;
         }
