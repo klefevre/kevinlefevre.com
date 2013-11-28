@@ -21,7 +21,21 @@ body {
 }
 
 /* Debug */
+img { background-color: rgba(0, 0, 255, 0.5); }
 
+header {
+  background-color: rgba(0, 255, 0, 0.5);;
+
+  nav { background-color: rgba(255, 0, 0, 0.5);  }
+}
+
+
+div#content-container {
+  background-color: rgba(0, 255, 255, 0.5);;
+  border:1px solid red;
+}
+
+/* Works */
 .element {
   width: 120px;
   height: 160px;
@@ -69,22 +83,6 @@ body {
   }
 }
 
-img { background-color: rgba(0, 0, 255, 0.5); }
-
-header {
-  background-color: rgba(0, 255, 0, 0.5);;
-
-  nav { background-color: rgba(255, 0, 0, 0.5);  }
-}
-
-footer {
-  background-color: rgba(255, 255, 0, 0.5);;
-}
-
-div#content-container {
-  background-color: rgba(0, 255, 255, 0.5);;
-  border:1px solid red;
-}
 
 /* Layout */
 .kl-container {
@@ -101,6 +99,7 @@ header {
 
   a#kl-header {
     img {
+      display: block;
       width: 100%;
       max-width: 535px;
       height: auto;
@@ -132,6 +131,11 @@ header {
 }
 
 /* Footer */
+footer {
+  border-top: solid 1px #000;
+  background-color: lightgray;
+}
+
 @include sticky-footer(54px, "#kl-root", "#kl-root_footer", "#kl-footer");
 
 #kl-social-links {

@@ -45,7 +45,7 @@ require([
 
     manageLanguage();
 
-//    var test = new MainScene();
+    var test = new MainScene();
 
     $("#stop-birds-btn").click(function(){
         console.log("console.log tapped");
